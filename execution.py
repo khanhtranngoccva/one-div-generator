@@ -463,7 +463,6 @@ if __name__ == "__main__":
                         type=int, default=5000)
     parser.add_argument('-seed', help="Seed for random number generation.",
                         type=int, default=None)
-    parser.add_argument('--save', action='store_true')
     parser.add_argument('--debug', action='store_true')
     parser.add_argument('--time', help="Display timer for each section.",
                         action='store_true')
