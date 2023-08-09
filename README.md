@@ -1,5 +1,9 @@
 # One-div CSS Generator
 
+This script aims to convert an image or a set of frames into a CSS file, packed in only a single div element, without using clip-path or canvas elements.
+
+![image](https://github.com/khanhtranngoccva/one-div-generator/assets/61155608/9b4c0a72-a215-410e-97ba-fb5c8fbaf0e5)
+
 ## Usage
 
 ### Quick start
@@ -9,7 +13,7 @@ For images:
 python execution.py IMAGE_PATH
 ```
 
-For video directories:
+For directories of frames (use ffmpeg to convert a video into frames first):
 
 ```shell
 python execution.py -directory DIRECTORY_PATH [-fps FPS] [-thumbnail THUMBNAIL] 
@@ -21,17 +25,17 @@ python execution.py -directory DIRECTORY_PATH [-fps FPS] [-thumbnail THUMBNAIL]
 ### Advanced
 
 - -sample: {disk,threshold} Sampling method for candidate points. Default: threshold
-- -process {approx-canny,edge-entropy} Pre-processing method to use. Default: approx-canny
+- -process: {approx-canny,edge-entropy} Pre-processing method to use. Default: approx-canny
 - -rate: Desired ratio of sample points to pixels. Default: 0.03
 - -blur: Blur radius for approximate canny. Default: 2
 - -threshold: Threshold for threshold sampling. Default: 0.02
 - -max-points: Max number of sample points. Default: 5000
 - -seed: Seed for random number generation.
 - --debug: Enable debugging.
-- --time Display timer for each section.
-- -thumbnail Frame number to pick thumbnail.
-- -edge-angle Extra angle around the cone to fill up gaps in the output. Default: 0.025
-- -rounding Round CSS gradients to max decimal places. Default: 3
+- --time: Display timer for each section.
+- -thumbnail: Frame number to pick thumbnail.
+- -edge-angle: Extra angle around the cone to fill up gaps in the output. Default: 0.025
+- -rounding: Round CSS gradients to max decimal places. Default: 3
 
 ## Abstract steps
 
