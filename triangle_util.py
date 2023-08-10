@@ -29,9 +29,9 @@ def get_bounding_box(v1: Point, v2: Point, v3: Point):
     x2, y2 = v2
     x3, y3 = v3
 
-    min_x = min([x1, x2, x3]) - 0
+    min_x = min([x1, x2, x3]) - 1
     max_x = max([x1, x2, x3]) + 1
-    min_y = min([y1, y2, y3]) - 0
+    min_y = min([y1, y2, y3]) - 1
     max_y = max([y1, y2, y3]) + 1
 
     return min_x, min_y, max_x - min_x, max_y - min_y
