@@ -57,6 +57,7 @@ python execution.py -directory DIRECTORY_PATH [-fps FPS] [-thumbnail THUMBNAIL]
 2. Details are not as well-preserved as directly using polygons.
 3. Videos have very low FPS even running on as few as 300 sample points, and only work on Firefox. Google Chrome and
    Chromium rendering engines are extremely horrible at tackling one-div animations.
+4. There are gaps forming between the triangles that need to be eliminated by using edge-angle, which makes the rendering of triangles less accurate.
 
 ## Credits
 
