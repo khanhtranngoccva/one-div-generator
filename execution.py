@@ -383,6 +383,8 @@ def execute_many(app_args):
     frames = []
     initial_frame = "none"
 
+    w = 0
+    h = 0
     for idx, path in enumerate(tqdm.tqdm(listing)):
         img_path = os.path.join(path)
 
@@ -394,6 +396,8 @@ def execute_many(app_args):
 
             layers = render_gradients(triangles, img, edge_angle=app_args.edge_angle)
             layer_string = ',\n'.join(layers)
+            w = len(img[0])
+            h = len(img)
         except Exception as e:
             print(e, file=sys.stderr)
             layer_string = "none"
@@ -422,8 +426,8 @@ def execute_many(app_args):
 }}
 
 .frame {{
-    width: 100%;
-    height: 100%;
+    width: {w}px;
+    height: {h}px;
     background: {initial_frame};
     background-repeat: no-repeat;
 }}
@@ -468,7 +472,8 @@ if __name__ == "__main__":
                         action='store_true')
     parser.add_argument('-thumbnail', help="Frame number to pick thumbnail.",
                         type=int, default=None)
-    parser.add_argument('-edge-angle', help="Extra angle around the cone to fill up gaps in the output.", type=float, default=0.025)
+    parser.add_argument('-edge-angle', help="Extra angle around the cone to fill up gaps in the output.", type=float,
+                        default=0.025)
     parser.add_argument('-rounding', help="Round CSS gradients to max decimal places.", type=int, default=3)
 
     args = parser.parse_args()
